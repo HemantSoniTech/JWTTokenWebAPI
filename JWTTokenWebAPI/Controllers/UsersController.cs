@@ -1,4 +1,5 @@
-﻿using JWTTokenWebAPI.Models;
+﻿using JWTTokenWebAPI.Helpers;
+using JWTTokenWebAPI.Models;
 using JWTTokenWebAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace JWTTokenWebAPI.Controllers
             return Ok(response);
         }
 
-        [Authorize]
+        [AuthorizeJwt]
         [HttpGet]
         public IActionResult GetAll()
         {

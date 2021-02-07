@@ -1,5 +1,8 @@
 using JWTTokenWebAPI.Helpers;
 using JWTTokenWebAPI.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -70,10 +73,10 @@ namespace JWTTokenWebAPI
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
-            app.UseAuthorization();
-
             // custom jwt auth middleware
             app.UseMiddleware<JwtAuthMiddleware>();
+
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

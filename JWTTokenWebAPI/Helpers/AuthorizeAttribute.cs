@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace JWTTokenWebAPI.Helpers
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    public class AuthorizeAttribute : Attribute, IAuthorizationFilter
+    public class AuthorizeJwtAttribute : Attribute, IAuthorizationFilter
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
